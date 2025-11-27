@@ -15,9 +15,24 @@ This is a simple User Attendance CRUD (Create, Read, Update, Delete) application
 ## Setup
 
 1.  **Database**:
-    Import the `database.sql` file into your MySQL server.
+    You can import the `database.sql` file:
     ```bash
     mysql -u root -p < database.sql
+    ```
+    
+    **Or create it manually:**
+    Open your MySQL client (like phpMyAdmin or Workbench) and run:
+    ```sql
+    CREATE DATABASE attendance_db;
+    USE attendance_db;
+
+    CREATE TABLE attendance_records (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        user_name VARCHAR(100) NOT NULL,
+        check_in DATETIME NOT NULL,
+        check_out DATETIME,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
     ```
 
 2.  **Configuration**:
